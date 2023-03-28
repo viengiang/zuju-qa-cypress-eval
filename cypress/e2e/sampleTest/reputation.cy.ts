@@ -7,9 +7,7 @@ describe('Reputation', () => {
 	before(() => {
 		General.accessToEndpoint(General.signInEndpoint);
 		SignInPage.login(SignInPage.email, SignInPage.password);
-		cy.url().should('not.include', General.signInEndpoint, {
-			timeout: 60000,
-		});
+		cy.url().should('not.include', General.signInEndpoint);
 		HomePage.pageHeading.should('contain', HomePage.upcomingHeading);
 		General.accessToEndpoint(General.reputationEndpoint);
 	});
@@ -36,8 +34,7 @@ describe('Reputation', () => {
 			.type(`invalid ${new Date().getTime()}`);
 		ReputationPage.teamNotFound.should(
 			'contain',
-			ReputationPage.teamNotFoundMsg,
-			{ timeout: 10000 }
+			ReputationPage.teamNotFoundMsg
 		);
 	});
 

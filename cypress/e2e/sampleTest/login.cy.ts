@@ -47,9 +47,7 @@ describe('Login', () => {
 		SignInPage.inputPassword.click().type(SignInPage.password);
 		SignInPage.inputConfirmPassword.click().type(SignInPage.password);
 		SignInPage.btnSubmit.click();
-		cy.url().should('not.include', General.signInEndpoint, {
-			timeout: 20000,
-		});
+		cy.url().should('not.include', General.signInEndpoint);
 		General.h2Heading.should('contain', SignInPage.completeRegister);
 	});
 

@@ -5,5 +5,5 @@ export default defineConfig({
     baseUrl: "https://beta-app.zujudigital.com",
     supportFile: false,
   },
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 15000,
 });
