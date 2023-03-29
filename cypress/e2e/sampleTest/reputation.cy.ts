@@ -4,7 +4,7 @@ import SignInPage from '../../pageobjects/signInPage';
 import HomePage from '../../pageobjects/homePage';
 
 describe('Reputation', () => {
-	before(() => {
+	beforeEach(() => {
 		General.accessToEndpoint(General.signInEndpoint);
 		SignInPage.login(SignInPage.email, SignInPage.password);
 		cy.url().should('not.include', General.signInEndpoint);
@@ -46,12 +46,14 @@ describe('Reputation', () => {
 			.click()
 			.clear()
 			.type(ReputationPage.teamName);
+		cy.wait(3000);
 		ReputationPage.teamList
 			.find(ReputationPage.cardSelector)
 			.contains(ReputationPage.teamName)
 			.parents(ReputationPage.cardSelector)
 			.find('button[aria-label="favorite"]')
 			.click();
+		cy.wait(3000);
 		ReputationPage.favTeamList
 			.find(ReputationPage.cardSelector)
 			.contains(ReputationPage.teamName)
